@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/slick.css" type="text/css" /> 
     <link rel="stylesheet" href="css/templatemo-style.css">
     <link rel="stylesheet" href="css/editor.css">
-    <!-- add ace editor CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
 <!--
     
@@ -102,10 +101,12 @@ Edited by IZOBRETATEL777
                     <option value="java">Java</option>
                     <option value="python">Python</option>
                   </select>
-                  <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
                   <script>
                     var editor = ace.edit("editor");
                     editor.setTheme("ace/theme/mono_industrial");
+                    // disable number of lines
+                    // editor.renderer.setShowGutter(false);
                     editor.session.setMode("ace/mode/" + document.getElementById('language').options[document.getElementById('language').selectedIndex].value);
                     document.getElementById('language').addEventListener('change', function() {
                       editor.session.setMode("ace/mode/" + document.getElementById('language').options[document.getElementById('language').selectedIndex].value);
@@ -114,9 +115,7 @@ Edited by IZOBRETATEL777
                 </div>
               </div>
               <div class="text-center">
-                <a href="#0" data-page-no="3" class="btn btn-primary tm-intro-btn tm-page-link">
-                  Improve
-                </a>
+                <button type="button" class="btn btn-primary tm-intro-btn" onclick="analyzeCode()">Analyze</button>
               </div>
             </div>
           </li>
@@ -264,5 +263,7 @@ Edited by IZOBRETATEL777
   <script src="js/bootstrap.min.js"></script>
   <script src="js/slick.js"></script>
   <script src="js/templatemo-script.js"></script>
+  <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/analyze_code.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
