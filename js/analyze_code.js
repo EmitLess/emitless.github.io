@@ -34,6 +34,11 @@ class NEFC {
 }
 `;
 
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl, option)
+})
+
 
 function analyzeCode() {
     var editor = ace.edit("editor");
@@ -42,3 +47,4 @@ function analyzeCode() {
         editor.setValue(goodcode);
     }
 }
+
