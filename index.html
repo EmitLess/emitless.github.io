@@ -91,30 +91,32 @@ Edited by IZOBRETATEL777
                 </a>
               </div>            
             </div>
-            <div class="page-width-2 page-right">
+            <div class="page-width-1 page-right tm-border-top tm-border-bottom">
+            <h1 class="text-center">Analyze and improve your code</h1>
+            <br>
               <div class="tm-bg-dark tm-block tm-block-taller tm-block-scroll">
                 <div class="tm-editable-container">
-                  <div id="editor" class="tm-editable-area">
-#include <iostream>
-using namespace std;
-  int main() {
-  cout << "Hello, World!";
-  return 0;
-}
-                  </div>
+                  <div id="editor" class="tm-editable-area">//Enter your code here</div>
+                  <select id="language" class="form-select">
+                    <option value="c_cpp">C/C++</option>
+                    <option value="java">Java</option>
+                    <option value="python">Python</option>
+                  </select>
                   <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
                   <script>
                     var editor = ace.edit("editor");
-                    editor.setTheme("ace/theme/monokai");
-                    editor.session.setMode("ace/mode/c_cpp");
+                    editor.setTheme("ace/theme/mono_industrial");
+                    editor.session.setMode("ace/mode/" + document.getElementById('language').options[document.getElementById('language').selectedIndex].value);
+                    document.getElementById('language').addEventListener('change', function() {
+                      editor.session.setMode("ace/mode/" + document.getElementById('language').options[document.getElementById('language').selectedIndex].value);
+                    });
                   </script>
-                  <style>
-                    .ace_editor {
-                      border: 1px solid lightgray;
-                      height: 300px;
-                      width: 100%;
-                    }
                 </div>
+              </div>
+              <div class="text-center">
+                <a href="#0" data-page-no="3" class="btn btn-primary tm-intro-btn tm-page-link">
+                  Improve
+                </a>
               </div>
             </div>
           </li>
