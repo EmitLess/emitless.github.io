@@ -36,15 +36,22 @@ class NEFC {
 
 var toastElList = [].slice.call(document.querySelectorAll('.toast'))
 var toastList = toastElList.map(function (toastEl) {
-  return new bootstrap.Toast(toastEl, option)
+  return new bootstrap.Toast(toastEl)
 })
 
 
 function analyzeCode() {
     var editor = ace.edit("editor");
     code = editor.getValue();
+    let toast = document.getElementById('toast');
+    toast.querySelector(".toast-body").textContent="No optimization needed";
+
     if (code.replace(/\s/g, '') == badcode.replace(/\s/g, '')) {
-        editor.setValue(goodcode);
+        toast.querySelector(".toast-body").textContent="20gr of CO2 were saved";
+        editor.setValue(goodcode); 
     }
+    var myToast = bootstrap.Toast.getInstance(toast);
+    myToast.show()
 }
+
 
